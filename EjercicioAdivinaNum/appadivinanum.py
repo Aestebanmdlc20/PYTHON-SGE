@@ -22,10 +22,12 @@ número. Y así hasta que gane o hasta que se agoten los ocho intentos.
 import random as rd
 
 name = input("¿Cómo te llamas? ")
-print ("Hola, " + name + ", he pensado un número entre 1 y 100, tienes 8 intentos para adivinarlo.")
+print(f"Hola, {name}, he pensado un número entre 1 y 100, tienes 8 intentos para adivinarlo.")
 number = rd.randint(1, 100)
 count = 0
-while count < 8:
+acierto = False
+
+while count < 8 and not acierto:
     count += 1
     guess = int(input("Introduce un número: "))
     if guess < 1 or guess > 100:
@@ -35,7 +37,6 @@ while count < 8:
     elif guess > number:
         print("El número es menor.")
     else:
-        print("¡Has acertado! Enhorabuena, " + name + ".")
-        print("Has acertado en " + str(count) + " intentos.")
-        break
-
+        print(f"¡Has acertado! Enhorabuena, {name}.")
+        print(f"Has acertado en {count} intentos.")
+        acierto = True
