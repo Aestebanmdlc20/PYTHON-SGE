@@ -19,14 +19,14 @@ def actualizar_palabra(palabra_secreta, palabra_mostrada, letra):
             nueva_palabra += palabra_mostrada[i]
     return nueva_palabra
 
-
 def ahorcado(palabra_secreta):
     print("Bienvenido al juego del ahorcado")
     print("Tienes 6 vidas")
     vidas = 6
     palabra_mostrada = "_" * len(palabra_secreta)
     print(palabra_mostrada)
-    while vidas > 0:
+    ganado = False
+    while vidas > 0 and not ganado:
         letra = input("Introduce una letra: ")
         if letra in palabra_secreta:
             palabra_mostrada = actualizar_palabra(palabra_secreta, palabra_mostrada, letra)
@@ -36,6 +36,6 @@ def ahorcado(palabra_secreta):
             print(f"Has fallado. Te quedan {vidas} vidas")
         if palabra_mostrada == palabra_secreta:
             print("¡Has ganado!")
-            break
+            ganado = True
 
 ahorcado("hola")
