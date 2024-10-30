@@ -21,5 +21,5 @@ def suma_primos(n):
     return suma
 
 numero = 10
-result = suma_primos(numero)
-print(result) # 17
+resultado = suma_primos(numero)
+print(resultado)
