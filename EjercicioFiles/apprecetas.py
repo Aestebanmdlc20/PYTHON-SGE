@@ -5,7 +5,9 @@ def bienvenida():
     print("Las recetas se encuentran en la carpeta 'recetas'")
 
 def contar_recetas():
-    num_recetas = sum([len(files) for r, d, files in os.walk('recetas')])
+    num_recetas = 0
+    for root, dirs, files in os.walk('recetas'):
+        num_recetas += len(files)
     print(f"Hay {num_recetas} recetas en la carpeta")
 
 def mostrar_menu():
@@ -57,7 +59,7 @@ def crear_categoria():
         print("La categoría ya existe.")
 
 def eliminar_receta():
-    categoria = input("Ingrese la categoría: ")
+    categoria = input("Ingrese la categoria: ")
     path = os.path.join('recetas', categoria)
     if os.path.exists(path):
         recetas = os.listdir(path)
@@ -69,18 +71,18 @@ def eliminar_receta():
             os.remove(os.path.join(path, recetas[seleccion]))
             print("Receta eliminada con éxito.")
         else:
-            print("No hay recetas en esta categoría.")
+            print("No hay recetas en esta categoria")
     else:
-        print("La categoría no existe.")
+        print("La categoria no existe")
 
 def eliminar_categoria():
     categoria = input("Ingrese la categoría a eliminar: ")
     path = os.path.join('recetas', categoria)
     if os.path.exists(path):
         os.rmdir(path)
-        print("Categoría eliminada con éxito.")
+        print("Categoría eliminada con exito")
     else:
-        print("La categoría no existe.")
+        print("La categoria no existe")
 
 def finalizar_programa():
     print("Finalizando programa...")
@@ -88,7 +90,6 @@ def finalizar_programa():
 
 def main():
     while True:
-        os.system('cls' if os.name == 'nt' else 'clear')
         bienvenida()
         contar_recetas()
         opcion = mostrar_menu()
