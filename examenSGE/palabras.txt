@@ -1,0 +1,6 @@
+python
+guitarra
+parapente
+computadora
+biblioteca
+cerveza
