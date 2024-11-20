@@ -29,7 +29,7 @@ def main():
     palabra_secreta = obtener_palabra_secreta(palabras)
     letras_ocultas = ["_" for _ in palabra_secreta]
     intentos = 6
-    letras_correctas = set() # Uso el set para evitar letras duplicadas, es como el de java (collecion de valore unicos)
+    letras_correctas = set() # Uso el set para evitar letras duplicadas, es como el de java (coleccion de valore unicos)
 
     print("Bienvenido al juego Ahorcado")
     mostrar_estado(letras_ocultas, intentos)
@@ -39,6 +39,7 @@ def main():
         if letra in letras_correctas:
             print("Ya ingresaste esta letra")
         elif letra in palabra_secreta:
+            print ("Letra correcta")
             letras_correctas.add(letra)
             actualizar_letras_ocultas(palabra_secreta, letras_ocultas, letra)
         else:
